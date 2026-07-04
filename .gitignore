@@ -1,0 +1,64 @@
+# ============================================================================
+# Homelab .gitignore
+# Prevents committing secrets, credentials, kubeconfigs, and machine-specific
+# generated state to version control.
+# ============================================================================
+
+## Kubernetes secrets / credentials
+kubeconfig
+kubeconfig.yaml
+*.kubeconfig
+admin.conf
+**/pki/
+**/*.key
+**/*.crt
+!diagrams/**/*.key      # (guard in case a diagram export ever uses .key ext)
+join-command.txt
+kubeadm-join.sh.generated
+
+## SSH keys
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+*.pem
+
+## Environment / secret files
+.env
+.env.*
+*.secret
+secrets.yaml
+
+## Terraform (future roadmap items)
+*.tfstate
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+
+## Ansible (future roadmap items)
+*.retry
+vault.yml
+
+## Proxmox backups
+*.vma
+*.vma.zst
+*.vma.gz
+
+## OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+## Logs
+*.log
+logs/
+
+## Samba
+smb.conf.bak
+
+## Local scratch / test output
+tmp/
+scratch/

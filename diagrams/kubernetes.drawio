@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net" modified="2026-07-04T00:00:00.000Z" agent="homelab-docs" version="24.0.0" type="device">
+  <diagram name="Kubernetes Cluster" id="k8s-cluster">
+    <mxGraphModel dx="1400" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="masterbox" value="master (10.10.10.10) - Control Plane" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#b85450;dashed=1;verticalAlign=top;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="80" y="60" width="360" height="240" as="geometry" />
+        </mxCell>
+
+        <mxCell id="apiserver" value="kube-apiserver" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="110" y="100" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="etcd" value="etcd" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="290" y="100" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="cm" value="kube-controller-manager" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="110" y="170" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sched" value="kube-scheduler" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="280" y="170" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="kubeletm" value="kubelet + Cilium agent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="110" y="240" width="310" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="w1box" value="worker1 (10.10.10.11)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#82b366;dashed=1;verticalAlign=top;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="500" y="60" width="280" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="kubeletw1" value="kubelet + Cilium agent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="520" y="100" width="240" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="podsw1" value="Pods" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="520" y="150" width="240" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="w2box" value="worker2 (10.10.10.12)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#82b366;dashed=1;verticalAlign=top;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="500" y="220" width="280" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="kubeletw2" value="kubelet + Cilium agent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="520" y="260" width="240" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="podsw2" value="Pods" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="520" y="310" width="240" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="apiserver" target="etcd">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="apiserver" target="cm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="apiserver" target="sched">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="watches" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="kubeletw1" target="apiserver">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="watches" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="kubeletw2" target="apiserver">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
