@@ -29,7 +29,7 @@ Proxmox VE replaces any existing OS on the laptop — this is a **bare-metal ins
 | Component | Spec |
 |---|---|
 | CPU | Intel i5, 4 physical cores |
-| RAM | 16 GB |
+| RAM | 8 GB |
 | SSD | 256 GB (Proxmox host + VM disks) |
 | HDD | 1 TB (network storage, see [11-Samba.md](11-Samba.md)) |
 | Network | WiFi only (`wlp3s0`), no Ethernet in use |
